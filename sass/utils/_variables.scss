@@ -1,0 +1,22 @@
+$main-color: #901c1c;
+$second-color: #d3573c;
+$main-text-color: #d3573c;
+$second-text-color: #901c1c;
+$grey-text-color: #525252;
+
+$breakpoints: (
+  mobile: 599px,
+  tablette: 850px,
+);
+
+@mixin forMobile {
+  @media screen and (max-width: map-get($breakpoints, mobile)) {
+    @content;
+  }
+}
+
+@mixin forTablet {
+  @media screen and (max-width: map-get($breakpoints, tablette)) {
+    @content;
+  }
+}

@@ -1,0 +1,64 @@
+.card__photographer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 33%;
+  min-width: 250px;
+  padding: 2em 0;
+  @include forMobile {
+    padding: 1em;
+  }
+  .portrait {
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    img {
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+  }
+  .title {
+    font-family: DM Sans;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 36px;
+    text-align: center;
+    color: $second-color;
+  }
+
+  .tagline {
+    font-family: DM Sans;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 10px;
+    line-height: 13px;
+    text-align: center;
+    color: #000000;
+  }
+
+  .tags {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .tags:first-child {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+
+  .tarif {
+    font-family: DM Sans;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 9px;
+    line-height: 12px;
+    text-align: center;
+    color: $grey-text-color;
+  }
+}

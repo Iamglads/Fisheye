@@ -1,0 +1,72 @@
+.hero__wrappe {
+  display: flex;
+  justify-content: space-between;
+  background: #fafafa;
+  border-radius: 5px;
+  padding: 2em 2em;
+  height: 300px;
+  &--img {
+    img {
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+  }
+  &--information {
+    display: block;
+    justify-content: flex-start;
+    align-items: flex-start;
+    h1 {
+      text-align: left;
+    }
+    address {
+      text-align: left;
+    }
+    p {
+      text-align: left;
+    }
+    ul {
+      display: flex;
+      justify-content: space-around;
+    }
+  }
+
+  &--btn {
+    display: flex;
+    justify-content: start;
+    align-items: flex-start;
+    align-self: flex-start;
+  }
+}
+
+.galery__images {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  &--wrappe {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    .card {
+      width: 30%;
+      margin-right: 3%;
+      height: auto;
+      margin-bottom: 20px;
+      img {
+        width: 100%;
+        border-radius: 5px;
+        object-fit: cover;
+      }
+      .title {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        .fa-heart {
+          color: #901c1c;
+        }
+      }
+    }
+  }
+}

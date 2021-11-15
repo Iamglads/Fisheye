@@ -1,0 +1,71 @@
+body {
+  margin: 0 auto;
+  padding: 0;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+}
+
+.container__wrappe {
+  max-width: 1280px;
+}
+h1 {
+  font-family: DM Sans;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 30px;
+  color: $main-color;
+  @include forMobile {
+    font-size: 16px;
+  }
+}
+
+h2 {
+  font-family: DM Sans;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 18px;
+  color: $main-color;
+}
+
+h3 {
+  font-family: DM Sans;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 18px;
+  line-height: 31px;
+  color: $second-color;
+}
+
+a {
+  text-decoration: none;
+  cursor: pointer;
+}
+
+address {
+  font-family: DM Sans;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 13px;
+  text-align: center;
+  color: $main-color;
+}
+
+.tag {
+  font-family: DM Sans;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 16px;
+  text-align: center;
+  color: $main-color;
+  list-style: none;
+  padding: 0.3em 0.5em;
+  margin-right: 20px;
+  border: 0.5px solid $grey-text-color;
+  box-sizing: border-box;
+  border-radius: 11px;
+}
