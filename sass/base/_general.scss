@@ -54,6 +54,20 @@ address {
   color: $main-color;
 }
 
+.tags {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+li {
+  list-style: none;
+}
+
+.display-tags {
+  display: flex;
+}
+
 .tag {
   font-family: DM Sans;
   font-style: normal;
