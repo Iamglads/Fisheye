@@ -4,43 +4,51 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
+    integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
     <title>FishEye - Accueil</title>
     <link rel="stylesheet" href="./style/css/style.css">
 </head>
 <body>
-    <main>
+    <div>
         <div class="container">
-            <header>
-                <div class="header__wrappe">
-                    <div class="logo">
-                        <img src="./images/logo.png" alt="logo">
+            <div class="container__wrappe">
+                <!--Header-->
+                <header>
+                    <div class="header__wrappe">
+                        <a class="logo" href="/index.html">
+                            <img src="./images/logo.png" alt="logo">
+                        </a>
+                        <nav class="box__tags">
+                            <!-- Tags filter -->
+                            <ul>
+                                <li class="tag" data-tag="portrait">#Portrait</li>
+                                <li class="tag" data-tag="art">#Art</li>
+                                <li class="tag" data-tag="fashion">#Fashion</li>
+                                <li class="tag" data-tag="architecture">#Architecture</li>
+                                <li class="tag" data-tag="travel">#Travel</li>
+                                <li class="tag" data-tag="sport">#Sport</li>
+                                <li class="tag" data-tag="animals">#Animals</li>
+                                <li class="tag" data-tag="events">#Events</li>
+                            </ul>
+                        </nav>
+                        <div>
+                            <h1 aria-label="Nos photographes">Nos photographes</h1>
+                        </div>
                     </div>
-                    <nav class="box__tags">
-                        <!-- Tags filtre -->
-                        <ul>
-                            <li class="tag">#Portrait</li>
-                            <li class="tag">#Art</li>
-                            <li class="tag">#Fashion</li>
-                            <li class="tag">#Architecture</li>
-                            <li class="tag">#Travel</li>
-                            <li class="tag">#Sport</li>
-                            <li class="tag">#Animals</li>
-                            <li class="tag">#Events</li>
-                        </ul>
-                    </nav>
-                    <div>
-                        <h2>Nos photographes</h2>
-                    </div>
-                </div>
-            </header>
-            <section class="section__photographers">
-                <div  class="display__photographers">
-                   
-                </div>
-            </section>
-        </div>
-    </main>
-
-    <script type="module" src="./index.js"></script>
+                </header>
+                <!--Main content-->
+                <main class="section__photographers">
+                    <section  class="display__photographers">
+                       <!--Display here all photographers cards-->
+                    </section>
+                </main>
+            </div>
+            </div>
+    </div>
+    <!--Script-->
+    <script src="./js/Api/Api.js"></script>
+    <script src="./js/Templates/PhotographerCard.js"></script>
+    <script src="./App.js"></script>
 </body>
 </html>
