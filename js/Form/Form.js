@@ -1,46 +1,61 @@
-class handleModal {
-  constructor() {
-    this.submitForm = document.querySelector(".form-submit");
+export class Form {
+  /**
+   *
+   * @param {Object} photographer
+   */
+  constructor(photographer) {
+    this.photographer = photographer.name;
     this.modal = document.querySelector(".form");
+    this.submitForm = document.querySelector(".form-submit");
   }
 
-  openModal() {
-    this.modal.style.display = "block";
+  init() {
+    const closeForm = document.querySelectorAll(".close");
+    const openForm = document.querySelector(".btn");
+    this.displayName(this.photographer);
+    this.submitForm.addEventListener("submit", (e) => {
+      e.preventDefault();
+      console.log(this.sendData());
+    });
+
+    closeForm.forEach((close) =>
+      close.addEventListener("click", () => {
+        this._closeForm();
+      })
+    );
+
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape") {
+        this._closeForm();
+      }
+    });
+
+    openForm.addEventListener("click", () => {
+      this._openForm();
+    });
   }
 
-  closeModalForm() {
+  displayName(name) {
+    const formName = document.querySelector(".form-name");
+    formName.textContent = name;
+  }
+
+  _openForm() {
+    this.modal.style.display = "flex";
+  }
+
+  _closeForm() {
     this.modal.style.display = "none";
   }
 
   sendData() {
     const datas = {
-      Nom: this.submitForm.firstname.value,
-      Prénom: this.submitForm.lastname.value,
-      Email: this.submitForm.email.value,
-      Message: this.submitForm.message.value,
+      Nom: submitForm.firstname.value,
+      Prénom: submitForm.lastname.value,
+      Email: submitForm.email.value,
+      Message: submitForm.message.value,
     };
 
-    console.log(datas);
+    return datas;
   }
 }
-
-const closeModal = document.querySelector(".fa-times");
-const btnOpenModal = document.querySelectorAll(".open-modal-form");
-const submitForm = document.querySelector(".form-submit");
-
-document.addEventListener("load", () => {
-  const close = document.querySelector(".form");
-  close.style.display = "none";
-  test();
-});
-
-closeModal.addEventListener("click", () => {
-  const closeForm = new handleModal();
-  closeForm.closeModalForm();
-});
-
-submitForm.addEventListener("submit", (e) => {
-  e.preventDefault();
-  const submit = new handleModal();
-  submit.sendData();
-});
