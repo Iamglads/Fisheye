@@ -24,9 +24,17 @@
                 </div>
             </header>
             <main>
-                <div>
+                <div class="hero__container">
                     <div class="hero__wrappe">
-                        <!--display photographe information-->
+                        <div class="hero__wrappe--information">
+                            <!--photographer informations-->
+                        </div>
+                        <div class="hero__wrappe--btn">
+                            <button class="btn">Contactez-nous</button>
+                        </div>
+                        <div class="hero__wrappe--img">
+                            <!--photographer photo-->
+                        </div> 
                     </div>
                 </div>
                 <section class="section__filter">
@@ -39,24 +47,36 @@
                         </select>
                     </div>
                 </section>
+                <!--section gallery medias-->
                 <section class="galery__images">
                     <div class="galery__images--wrappe">
                          <!--display medias photographers-->
                     </div>
-                    <div class="galery__images--lightbox">
-                        <!--ligthbox modal-->
-                    </div>
-                    <div class="galery__images--infosbox">
-                        <!--Display amount likes and price per day-->
-                    </div>
+                </section>
+                <section class="lightbox__container">
+                    <div class="lightbox__container--wrappe">
+                        <div class="lightbox__container--left">
+                            <span></span>
+                            <i class="fas fa-chevron-left"></i>
+                            <span></span>
+                        </div>
+                        <div class="lightbox__container--media">
+                            <!-- -->
+                        </div>
+                        <div class="lightbox__container--right">
+                            <i class="fas fa-times close"></i>
+                            <i class="fas fa-chevron-right"></i>
+                            <span></span>
+                        </div>
+                      </div>`
                 </section>
                 <aside class="form">
                     <div class="form__wrappe">
                         <div class="form-header">
                             <h2>Contactez-moi <br> 
-                                <span>Mimi Keel</span>
+                                <span class="form-name"></span>
                             </h2>
-                            <i class="fas fa-times"></i>
+                            <i class="fas fa-times close"></i>
                         </div>
                         <form action="" class="form-submit">
                             <div>
@@ -84,12 +104,10 @@
             </main>
         </div>
     </div>
-    <script src="../js/Templates/MediaCard.js"></script>
-    <script src="../js/Templates/PhotographerCard.js"></script>
+    <script type="module" src="../js/Single/Single.js" defer></script>
     <script src="../js/Api/Api.js"></script>
-    <script src="../js/Single/Single.js"></script>
-    <script src="../js/Form/Form.js"></script>
-    <script src="../js/Lightbox/Lightbox.js"></script>
-    <script src="../js/Infobox/Infobox.js"></script>
+    <script src="../js/Templates/PhotographerCard.js"></script>
+    
+    
 </body>
 </html>
