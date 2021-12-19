@@ -5,40 +5,23 @@ export class Lightbox {
    */
   constructor(mediasPhotographer) {
     this.mediasPhotographer = mediasPhotographer;
-    console.log(this.mediasPhotographer);
+    this.currentIndex = null;
+    this.currentMedia = {};
+    //console.log(this.mediasPhotographer);
   }
 
   display() {
     const cards = document.querySelectorAll(".card-img, .card-video");
     for (let i = 0; i < cards.length; i++) {
       cards[i].addEventListener("click", () => {
-        // console.log(cards[i]);
-        //let imgSRC = cards[i].getAttribute("src");
-        /*  let index = 1;
-        if (this.mediasPhotographer.findIndex() == index) {
-          console.log("True");
-        } else {
-          console.log("False");
-        } */
-        // console.log(imgSRC);
-        this.displayContentLightbox(this.mediasPhotographer);
-
-        this._left();
-        this._right();
-        this._closeLightbox();
+        this.currentIndex = i;
+        this.currentMedia = this.mediasPhotographer[i];
+        this.displayContentLightbox(this.currentMedia);
       });
     }
-  }
-
-  /**
-   *
-   * @param {Array} mediasPhotographer
-   */
-
-  currentMedia(mediasPhotographer) {
-    // obtenir l'index du media
-    // le comparer au tableau des medias
-    // Afficher les informations liées à ce média
+    this._left();
+    this._right();
+    this._closeLightbox();
   }
 
   /**
@@ -50,14 +33,24 @@ export class Lightbox {
     const contentLightbox = document.querySelector(
       ".lightbox__container--media"
     );
-    lightbox.style.display = "flex";
     contentLightbox.innerHTML = `
-      <img src="../images/${media.image}" alt="">
-      <div class="title">
-          <p>${media.title}</p>
-      </div>`;
+		${
+      media.image
+        ? `<img src="../images/${media.image}" alt="${media.title}">`
+        : `<video class="card-video" width="300" height="380" tabindex="0">
+			<source src="../images/${media.video}" type="video/mp4">
+			</video>`
+    }
+		<div class="title">
+			<p>${media.title}</p>
+		</div>`;
+    lightbox.style.display = "flex";
   }
 
+  /**
+   *
+   * @param {Array} mediasPhotographer
+   */
   _right() {
     const next = document.querySelector(".fa-chevron-right");
     next.addEventListener("click", (e) => {
@@ -72,6 +65,10 @@ export class Lightbox {
     });
   }
 
+  /**
+   *
+   * @param {Array} mediasPhotographer
+   */
   _left() {
     const prev = document.querySelector(".fa-chevron-left");
     prev.addEventListener("click", (e) => {
@@ -99,10 +96,17 @@ export class Lightbox {
   }
 
   nextMethod() {
-    console.log("Rigth");
+    this.currentIndex++;
+    if (this.currentIndex >= this.mediasPhotographer.length) {
+      this.currentIndex = 0;
+    }
+    this.currentMedia = this.mediasPhotographer[this.currentIndex];
+    this.displayContentLightbox(this.currentMedia);
   }
 
   prevMethod() {
-    console.log("Left");
+    this.currentIndex--;
+    this.currentMedia = this.mediasPhotographer[this.currentIndex];
+    this.displayContentLightbox(this.currentMedia);
   }
 }
