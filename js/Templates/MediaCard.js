@@ -1,4 +1,8 @@
-class MediaCard {
+export class MediaCard {
+  /**
+   *
+   * @param {object} media
+   */
   constructor(media) {
     this.media = media;
     this.iconLike = document.querySelectorAll(".fa-heart");
@@ -7,38 +11,38 @@ class MediaCard {
   createCard() {
     const wrapperMedias = document.createElement("article");
     wrapperMedias.classList.add("card");
-
     const photographerMedias = ` 
     ${this.getSourceType()}
       <div class="title">
           <h3>${this.media.title}</h3>
           <div>
-              <span class="likes">${this.media.likes}</span>
-              <i class="fas fa-heart"></i>
+            <span class="likes" data="false">${this.media.likes}</span>
+            <i class="fas fa-heart" aria-label="likes"></i>
           </div>
       </div>
     `;
-    this.incrementeLike();
+    //console.log("test medias card");
+    this.updateLikes();
+
     wrapperMedias.innerHTML = photographerMedias;
     return wrapperMedias;
   }
 
   getSourceType() {
     return this.media.image
-      ? `<img src="../images/${this.media.image}" alt="${this.media.title}"></img>`
-      : `<video width="300" height="300" controls>
-      <source src="../images/${this.media.video}" type="video/mp4">
+      ? `<img class="card-img" src="../assets/images/${this.media.image}" alt="${this.media.title}" tabindex="0"></img>`
+      : `<video class="card-video" width="300" height="380" tabindex="0">
+      <source src="../assets/videos/${this.media.video}" type="video/mp4" controls>
       </video>`;
   }
 
-  incrementeLike() {
-    let sumLikes = "";
+  updateLikes() {
     let likes = document.querySelector(".likes");
-    for (let i = 0; i < this.iconLike.length; i++) {
-      this.iconLike[i].addEventListener("click", () => {
-        sumLikes = this.media.likes++;
-        likes.innerHTML = sumLikes;
-      });
-    }
+    this.iconLike.forEach((like) =>
+      like.addEventListener("click", () => {
+        likes = this.media.likes++;
+        likes.innerHTML = parseInt(this.media.likes);
+      })
+    );
   }
 }

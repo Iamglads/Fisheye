@@ -6,6 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
     integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital@0;1&display=swap" rel="stylesheet">
     <title>FishEye - Accueil</title>
     <link rel="stylesheet" href="./style/css/style.css">
 </head>
@@ -17,19 +20,19 @@
                 <header>
                     <div class="header__wrappe">
                         <a class="logo" href="/index.html">
-                            <img src="./images/logo.png" alt="logo">
+                            <img src="./assets/logo.png" alt="Fisheye Home page">
                         </a>
-                        <nav class="box__tags">
+                        <nav class="box__tags" aria-label="Catégories des photographes">
                             <!-- Tags filter -->
                             <ul>
-                                <li class="tag" data-tag="portrait">#Portrait</li>
-                                <li class="tag" data-tag="art">#Art</li>
-                                <li class="tag" data-tag="fashion">#Fashion</li>
-                                <li class="tag" data-tag="architecture">#Architecture</li>
-                                <li class="tag" data-tag="travel">#Travel</li>
-                                <li class="tag" data-tag="sport">#Sport</li>
-                                <li class="tag" data-tag="animals">#Animals</li>
-                                <li class="tag" data-tag="events">#Events</li>
+                                <li tabindex="0" class="tag" data-tag="portrait">#Portrait</li>
+                                <li tabindex="0"  class="tag" data-tag="art">#Art</li>
+                                <li tabindex="0"  class="tag" data-tag="fashion">#Fashion</li>
+                                <li tabindex="0"  class="tag" data-tag="architecture">#Architecture</li>
+                                <li tabindex="0"  class="tag" data-tag="travel">#Travel</li>
+                                <li tabindex="0"  class="tag" data-tag="sport">#Sport</li>
+                                <li tabindex="0"  class="tag" data-tag="animals">#Animals</li>
+                                <li tabindex="0"  class="tag" data-tag="events">#Events</li>
                             </ul>
                         </nav>
                         <div>
@@ -47,8 +50,6 @@
             </div>
     </div>
     <!--Script-->
-    <script src="./js/Api/Api.js"></script>
-    <script src="./js/Templates/PhotographerCard.js"></script>
-    <script src="./App.js"></script>
+    <script type="module" src="./App.js"></script>
 </body>
 </html>

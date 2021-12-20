@@ -30,19 +30,6 @@ header {
         @include forTablet {
         }
         li {
-          font-family: DM Sans;
-          font-style: normal;
-          font-weight: 500;
-          font-size: 12px;
-          line-height: 16px;
-          text-align: center;
-          color: #911c1c;
-          list-style: none;
-          padding: 0.3em 0.5em;
-          margin-right: 20px;
-          border: 0.5px solid #c4c4c4;
-          box-sizing: border-box;
-          border-radius: 11px;
           cursor: pointer;
           &:hover {
             border: 1px solid #911c1c;

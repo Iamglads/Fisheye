@@ -7,13 +7,15 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.5);
+  background: rgba(0, 0, 0, 0.7);
   transition: 0.5ms;
   .form__wrappe {
     background-color: #db8876;
-    max-width: 660px;
+    max-width: 500px;
+    width: 100%;
     padding: 2em;
     min-height: 400px;
+    height: auto;
     .form-header {
       display: flex;
       justify-content: space-between;
@@ -30,25 +32,29 @@
     }
     form {
       min-height: 400px;
+      width: 100%;
       input,
       textarea {
         width: 100%;
         background: #ffffff;
         border-radius: 5px;
         border: none;
-        height: 50px;
+        height: 40px;
         padding-left: 1em;
       }
       textarea {
-        height: 150px;
+        height: 100px;
+        @include forMobile {
+          height: 50px;
+        }
       }
 
       label {
         font-family: DM Sans;
         font-style: normal;
         font-weight: normal;
-        font-size: 36px;
-        line-height: 47px;
+        font-size: 20px;
+        line-height: 30px;
         color: #312e2e;
         @include forMobile {
           font-size: 20px;
@@ -73,11 +79,10 @@
         font-size: 30px;
       }
     }
-  }
-  @include forMobile {
-    height: auto;
-    max-width: 90%;
-    left: 5%;
-    margin-top: 50px;
+    @include forMobile {
+      max-width: 100%;
+      height: auto;
+      padding: 1em;
+    }
   }
 }

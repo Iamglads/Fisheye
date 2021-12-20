@@ -1,3 +1,6 @@
+import { PhotographerCard } from "./js/Templates/PhotographerCard.js";
+import { PhotographerApi } from "./js/Api/Api.js";
+
 class DisplayPhotographers {
   constructor() {
     this.displayPhotographers = document.querySelector(
@@ -9,8 +12,8 @@ class DisplayPhotographers {
   async main() {
     const datas = await this.Api.getPhotographer();
     const photographers = datas.photographers;
+
     photographers.forEach((photographer) => {
-      //console.log(photographer);
       const Card = new PhotographerCard(photographer);
       this.displayPhotographers.appendChild(Card.createCard());
     });
@@ -18,11 +21,13 @@ class DisplayPhotographers {
     this.filterByTags(photographers);
   }
 
-  //filter by tags
+  /**
+   *
+   * @param {Array} photographers
+   */
   filterByTags(photographers) {
     let datatag = document.querySelectorAll(".tag");
     for (let i = 0; i < datatag.length; i++) {
-      //console.log(this.datatag[i].dataset);
       datatag[i].addEventListener("click", () => {
         // Check de data type values
         let datavalue = datatag[i].dataset.tag;
@@ -34,7 +39,6 @@ class DisplayPhotographers {
         if (filterTags) {
           this.displayPhotographers.innerHTML = "";
           filterTags.forEach((photographer) => {
-            // Create card for all photographers with theses tags
             const Card = new PhotographerCard(photographer);
             this.displayPhotographers.appendChild(Card.createCard());
           });

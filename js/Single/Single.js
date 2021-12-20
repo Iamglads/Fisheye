@@ -1,14 +1,21 @@
+import { PhotographerApi } from "../Api/Api.js";
 import { Form } from "../Form/Form.js";
+import { MediaCard } from "../Templates/MediaCard.js";
 import { Lightbox } from "../Lightbox/Lightbox.js";
+import { Infos } from "../Infos/Infos.js";
 
 class Single {
   constructor() {
     this.params = new URLSearchParams(window.location.search);
     this.id = this.params.get("id");
     this.photographerApi = new PhotographerApi("../data.json");
-    this.displayPhotographer = document.querySelector(".hero__wrappe");
     this.displayMedias = document.querySelector(".galery__images--wrappe");
     this.sortSelect = document.querySelector("#sort");
+  }
+
+  display() {
+    this.getPhotographerById();
+    this.getMedias();
   }
 
   async getPhotographerById() {
@@ -19,33 +26,36 @@ class Single {
       //console.log(photographer.id);
       if (this.id == photographer.id) {
         const { name, portrait, city, country, tagline, tags } = photographer;
-        //console.log(photographer);
-        this.displayPhotographer.innerHTML = `
-        <div class="hero__wrappe--information">
-            <h1> ${name}</h1>
-            <address>${city} ${country}</address>
-            <p>${tagline}</p>
-            <ul>
-            ${tags.map((tag) => `<li class="tag">#${tag}<li/>`)}
-            </ul>
-          </div>
-          <div class="hero__wrappe--btn">
-            <button class="btn">Contactez-nous</button>
-          </div>
-          <div class="hero__wrappe--img">
-            <img src="../images/photographers/${portrait}" alt="${name}">
-          </div> 
-        </div>
-        
-			`;
-        this.displayInfosPhotographer(photographer);
-      }
+        this.displayPhotographerInfos(name, city, country, tagline, tags);
+        this.displayPhotographerPortrait(portrait, name);
 
-      return photographer;
+        // init block info at the bottom
+        const infos = new Infos(photographer, 456);
+        infos.display();
+
+        // init contact form
+        const form = new Form(photographer);
+        form.init();
+      }
     });
-    // init contact form
-    const form = new Form();
-    form.init();
+  }
+
+  displayPhotographerInfos(name, city, country, tagline, tags) {
+    const heroInfos = document.querySelector(".hero__wrappe--information");
+    heroInfos.innerHTML = `
+		<div class="hero__wrappe--information">
+      <h1> ${name}</h1>
+      <address>${city} ${country}</address>
+      <p>${tagline}</p>
+      <ul>
+        ${tags.map((tag) => `<li class="tag">#${tag}<li/>`)}
+      </ul>
+		</div> `;
+  }
+
+  displayPhotographerPortrait(portrait, name) {
+    const photographerPortrait = document.querySelector(".hero__wrappe--img");
+    photographerPortrait.innerHTML = `<img src="../assets/photographers/${portrait}" alt="${name}">`;
   }
 
   async getMedias() {
@@ -63,9 +73,8 @@ class Single {
         this.sortMediasMethod(mediasByPhotographer);
       });
     });
-
-    const lightbox = new Lightbox();
-    lightbox.display();
+    const ligthbox = new Lightbox(mediasByPhotographer);
+    ligthbox.display();
   }
 
   /**
@@ -99,32 +108,19 @@ class Single {
 
   /**
    *
-   * @param {Array} mediasByPhotographer
+   * @param {Array} medias
+   * @returns // total likes
    */
-
-  displayInfosPhotographer(photographer) {
-    let price = photographer.price;
-
-    const element = document.createElement("div");
-    element.classList.add("fixed-card");
-    element.innerHTML = `<div class="fixed-card-wrappe">
-                <div> 
-                    <span class="likes">81</span>
-                    <i class="fas fa-heart"></i>
-                </div>
-                <div>
-                    <span> ${price}€/jour</span>
-                </div>
-            </div>`;
-
-    document.body.appendChild(element);
+  getTotalLikes(medias) {
+    let photographerTotalMediasLikes = 0;
+    for (let media of medias) {
+      photographerTotalMediasLikes += media.likes;
+    }
+    return photographerTotalMediasLikes;
   }
 }
 
 document.addEventListener("DOMContentLoaded", () => {
-  const displayPhotographer = new Single();
-  displayPhotographer.getPhotographerById();
-
-  const displayMedias = new Single();
-  displayMedias.getMedias();
+  const display = new Single();
+  display.display();
 });

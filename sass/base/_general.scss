@@ -12,10 +12,18 @@ body {
 .container__wrappe {
   max-width: 1280px;
 }
-h1 {
+
+h1,
+h2,
+h3,
+li,
+address,
+.tag {
   font-family: DM Sans;
-  font-style: normal;
   font-weight: normal;
+}
+
+h1 {
   font-size: 30px;
   color: $main-color;
   @include forMobile {
@@ -24,17 +32,11 @@ h1 {
 }
 
 h2 {
-  font-family: DM Sans;
-  font-style: normal;
-  font-weight: normal;
   font-size: 18px;
   color: $main-color;
 }
 
 h3 {
-  font-family: DM Sans;
-  font-style: normal;
-  font-weight: normal;
   font-size: 18px;
   line-height: 31px;
   color: $second-color;
@@ -46,9 +48,6 @@ a {
 }
 
 address {
-  font-family: DM Sans;
-  font-style: normal;
-  font-weight: normal;
   font-size: 13px;
   text-align: center;
   color: $main-color;
@@ -79,17 +78,14 @@ li {
 }
 
 .tag {
-  font-family: DM Sans;
-  font-style: normal;
   font-weight: 500;
-  font-size: 18px;
+  font-size: 16px;
   line-height: 16px;
   text-align: center;
   color: $main-color;
-  list-style: none;
   padding: 0.3em 0.5em;
   margin: 0px 5px 5px 0px;
-  border: 0.5px solid $grey-text-color;
+  border: 1px solid $grey-text-color;
   box-sizing: border-box;
   border-radius: 11px;
 }

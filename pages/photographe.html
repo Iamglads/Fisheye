@@ -6,6 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
     integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital@0;1&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../style/css/style.css">
     <title>Document</title>
 </head>
@@ -15,7 +18,7 @@
             <header>
                 <div class="header__wrappe">
                     <a class="logo" href="../index.html">
-                        <img src="../images/logo.png" alt="logo">
+                        <img src="../assets/logo.png" alt="logo">
                     </a>
                     <nav class="box__tags">
                     </nav>
@@ -40,44 +43,46 @@
                 <section class="section__filter">
                     <div class="section__filter--wrappe">
                         <p>Trier par</p> 
-                        <select name="trier" id="sort">
+                        <select name="trier" id="sort" tabindex="0">
                             <option value="popularity">Popularité</option>
                             <option value="date">Date</option>
                             <option value="title">Titre</option>
                         </select>
                     </div>
                 </section>
-                <!--section gallery medias-->
+                <!--section medias gallery-->
                 <section class="galery__images">
                     <div class="galery__images--wrappe">
                          <!--display medias photographers-->
                     </div>
                 </section>
-                <section class="lightbox__container">
+                <!--Lightbox box-->
+                <dialog class="lightbox__container">
                     <div class="lightbox__container--wrappe">
                         <div class="lightbox__container--left">
                             <span></span>
-                            <i class="fas fa-chevron-left"></i>
+                            <i class="fas fa-chevron-left" aria-label="Image suivante" tabindex="0"></i>
                             <span></span>
                         </div>
                         <div class="lightbox__container--media">
                             <!-- -->
                         </div>
                         <div class="lightbox__container--right">
-                            <i class="fas fa-times close"></i>
-                            <i class="fas fa-chevron-right"></i>
+                            <i class="fas fa-times close" aria-label="Fermer la boite d'image" tabindex="0"></i>
+                            <i class="fas fa-chevron-right" aria-label="Image précédente" tabindex="0"></i>
                             <span></span>
                         </div>
-                      </div>`
-                </section>
-                <aside class="form">
+                      </div>
+                </dialog>
+                <!--Form box-->
+                <dialog class="form">
                     <div class="form__wrappe">
-                        <div class="form-header">
+                        <header class="form-header">
                             <h2>Contactez-moi <br> 
-                                <span class="form-name"></span>
+                                <span class="form-name" aria-label="Nom du photographe"></span>
                             </h2>
-                            <i class="fas fa-times close"></i>
-                        </div>
+                            <i class="fas fa-times close" aria-label="Fermer le formulaire" tabindex="0"></i>
+                        </header>
                         <form action="" class="form-submit">
                             <div>
                                 <label for="firstname">Prénom</label>
@@ -93,21 +98,18 @@
                             </div>
                             <div>
                                 <label for="message">Votre message</label>
-                            <textarea name="message" id="message" cols="30" rows="40"></textarea>
+                                <textarea name="message" id="message" cols="30" rows="20"></textarea>
                             </div>
                             <div>
                                 <button type="submit" class="btn btn-contact">Envoyer</button>
                             </div>
                         </form>
                     </div>
-                </aside>
+                </dialog>
             </main>
         </div>
     </div>
     <script type="module" src="../js/Single/Single.js" defer></script>
-    <script src="../js/Api/Api.js"></script>
-    <script src="../js/Templates/PhotographerCard.js"></script>
-    
     
 </body>
 </html>

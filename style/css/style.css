@@ -13,10 +13,17 @@ body {
   max-width: 1280px;
 }
 
-h1 {
+h1,
+h2,
+h3,
+li,
+address,
+.tag {
   font-family: DM Sans;
-  font-style: normal;
   font-weight: normal;
+}
+
+h1 {
   font-size: 30px;
   color: #901c1c;
 }
@@ -27,17 +34,11 @@ h1 {
 }
 
 h2 {
-  font-family: DM Sans;
-  font-style: normal;
-  font-weight: normal;
   font-size: 18px;
   color: #901c1c;
 }
 
 h3 {
-  font-family: DM Sans;
-  font-style: normal;
-  font-weight: normal;
   font-size: 18px;
   line-height: 31px;
   color: #d3573c;
@@ -49,9 +50,6 @@ a {
 }
 
 address {
-  font-family: DM Sans;
-  font-style: normal;
-  font-weight: normal;
   font-size: 13px;
   text-align: center;
   color: #901c1c;
@@ -82,17 +80,14 @@ li {
 }
 
 .tag {
-  font-family: DM Sans;
-  font-style: normal;
   font-weight: 500;
-  font-size: 18px;
+  font-size: 16px;
   line-height: 16px;
   text-align: center;
   color: #901c1c;
-  list-style: none;
   padding: 0.3em 0.5em;
   margin: 0px 5px 5px 0px;
-  border: 0.5px solid #525252;
+  border: 1px solid #525252;
   box-sizing: border-box;
   border-radius: 11px;
 }
@@ -133,19 +128,6 @@ header .header__wrappe .box__tags ul {
   align-items: center;
 }
 header .header__wrappe .box__tags ul li {
-  font-family: DM Sans;
-  font-style: normal;
-  font-weight: 500;
-  font-size: 12px;
-  line-height: 16px;
-  text-align: center;
-  color: #911c1c;
-  list-style: none;
-  padding: 0.3em 0.5em;
-  margin-right: 20px;
-  border: 0.5px solid #c4c4c4;
-  box-sizing: border-box;
-  border-radius: 11px;
   cursor: pointer;
 }
 header .header__wrappe .box__tags ul li:hover {
@@ -218,12 +200,17 @@ header .header__wrappe .box__tags ul li:hover {
   width: 100%;
   height: 300px;
 }
-.hero__wrappe--img img,
-.hero__wrappe--img video {
+.hero__wrappe--img img {
   width: 200px;
   height: 200px;
   border-radius: 50%;
   object-fit: cover;
+}
+@media screen and (max-width: 599px) {
+  .hero__wrappe--img img {
+    width: 80px;
+    height: 80px;
+  }
 }
 @media screen and (max-width: 599px) {
   .hero__wrappe--img {
@@ -240,31 +227,15 @@ header .header__wrappe .box__tags ul li:hover {
 .hero__wrappe--information h1 {
   text-align: left;
 }
-@media screen and (max-width: 599px) {
-  .hero__wrappe--information h1 {
-    text-align: center;
-  }
-}
 .hero__wrappe--information address {
   text-align: left;
-}
-@media screen and (max-width: 599px) {
-  .hero__wrappe--information address {
-    text-align: center;
-  }
 }
 .hero__wrappe--information p {
   text-align: left;
 }
-@media screen and (max-width: 599px) {
-  .hero__wrappe--information p {
-    text-align: center;
-  }
-}
 .hero__wrappe--information ul {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
 }
 .hero__wrappe--information ul :nth-child(2) {
   display: none;
@@ -295,8 +266,6 @@ header .header__wrappe .box__tags ul li:hover {
 @media screen and (max-width: 599px) {
   .hero__wrappe {
     height: auto;
-    flex-wrap: wrap;
-    flex-direction: column-reverse;
   }
 }
 
@@ -352,6 +321,11 @@ header .header__wrappe .box__tags ul li:hover {
   width: 100%;
   height: 300px;
   border-radius: 5px;
+  object-fit: cover;
+}
+.galery__images--wrappe .card video {
+  height: 100%;
+  width: 100%;
   object-fit: cover;
 }
 .galery__images--wrappe .card .title {
@@ -453,14 +427,16 @@ header .header__wrappe .box__tags ul li:hover {
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.5);
+  background: rgba(0, 0, 0, 0.7);
   transition: 0.5ms;
 }
 .form .form__wrappe {
   background-color: #db8876;
-  max-width: 660px;
+  max-width: 500px;
+  width: 100%;
   padding: 2em;
   min-height: 400px;
+  height: auto;
 }
 .form .form__wrappe .form-header {
   display: flex;
@@ -478,6 +454,7 @@ header .header__wrappe .box__tags ul li:hover {
 }
 .form .form__wrappe form {
   min-height: 400px;
+  width: 100%;
 }
 .form .form__wrappe form input,
 .form .form__wrappe form textarea {
@@ -485,18 +462,23 @@ header .header__wrappe .box__tags ul li:hover {
   background: #ffffff;
   border-radius: 5px;
   border: none;
-  height: 50px;
+  height: 40px;
   padding-left: 1em;
 }
 .form .form__wrappe form textarea {
-  height: 150px;
+  height: 100px;
+}
+@media screen and (max-width: 599px) {
+  .form .form__wrappe form textarea {
+    height: 50px;
+  }
 }
 .form .form__wrappe form label {
   font-family: DM Sans;
   font-style: normal;
   font-weight: normal;
-  font-size: 36px;
-  line-height: 47px;
+  font-size: 20px;
+  line-height: 30px;
   color: #312e2e;
 }
 @media screen and (max-width: 599px) {
@@ -523,11 +505,10 @@ header .header__wrappe .box__tags ul li:hover {
   }
 }
 @media screen and (max-width: 599px) {
-  .form {
+  .form .form__wrappe {
+    max-width: 100%;
     height: auto;
-    max-width: 90%;
-    left: 5%;
-    margin-top: 50px;
+    padding: 1em;
   }
 }
 
