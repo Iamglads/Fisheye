@@ -105,6 +105,9 @@ export class Lightbox {
 
   prevMethod() {
     this.currentIndex--;
+    if (this.currentIndex <= 0) {
+      this.currentIndex = this.mediasPhotographer.length;
+    }
     this.currentMedia = this.mediasPhotographer[this.currentIndex];
     this.displayContentLightbox(this.currentMedia);
   }

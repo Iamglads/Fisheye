@@ -6,6 +6,7 @@ export class MediaCard {
   constructor(media) {
     this.media = media;
     this.iconLike = document.querySelectorAll(".fa-heart");
+    this.isLiked = false;
   }
 
   createCard() {
@@ -15,13 +16,17 @@ export class MediaCard {
     ${this.getSourceType()}
       <div class="title">
           <h3>${this.media.title}</h3>
-          <div>
+          <div aria-label="conteneur bouton like">
             <span class="likes" data="false">${this.media.likes}</span>
-            <i class="fas fa-heart" aria-label="likes"></i>
+            ${
+              this.isLiked
+                ? `<i class="fas fa-heart" aria-label="like"></i>`
+                : `<i class="far fa-heart" aria-label="Not like"></i>`
+            }
+            
           </div>
       </div>
     `;
-    //console.log("test medias card");
     this.updateLikes();
 
     wrapperMedias.innerHTML = photographerMedias;
@@ -37,12 +42,12 @@ export class MediaCard {
   }
 
   updateLikes() {
-    let likes = document.querySelector(".likes");
-    this.iconLike.forEach((like) =>
-      like.addEventListener("click", () => {
-        likes = this.media.likes++;
-        likes.innerHTML = parseInt(this.media.likes);
-      })
-    );
+    document.querySelectorAll(".fa-heart").forEach((icon) => {
+      icon.addEventListener("click", () => {
+        console.log(this);
+        this.isLiked = true;
+        this.media.likes++;
+      });
+    });
   }
 }

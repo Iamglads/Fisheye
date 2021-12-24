@@ -4,12 +4,12 @@ export class PhotographerCard {
   }
 
   createCard() {
-    const wrapper = document.createElement("article");
+    const wrapper = document.createElement("div");
     wrapper.classList.add("card__photographer");
     const { id, portrait, name, city, country, tagline, price, tags } =
       this.photographer;
     const photographerCard = `
-		<div>
+		<div role="figure" aria-label="Carte photographe">
 			<a href="./pages/photographe.html?id=${id}">
 				<div class="portrait">
 					<img src="./assets/photographers/${portrait}" alt="${name}">
