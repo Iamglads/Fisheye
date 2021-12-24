@@ -11,6 +11,7 @@ class Single {
     this.photographerApi = new PhotographerApi("../data.json");
     this.displayMedias = document.querySelector(".galery__images--wrappe");
     this.sortSelect = document.querySelector("#sort");
+    this.metaTitle = document.querySelector("title");
   }
 
   display() {
@@ -29,8 +30,14 @@ class Single {
         this.displayPhotographerInfos(name, city, country, tagline, tags);
         this.displayPhotographerPortrait(portrait, name);
 
+        // Meta title
+        this.metaTitle.textContent = name;
+        const medias = Api.media.filter(
+          (media) => this.id == media.photographerId
+        );
+
         // init block info at the bottom
-        const infos = new Infos(photographer, 456);
+        const infos = new Infos(photographer, this.getTotalLikes(medias));
         infos.display();
 
         // init contact form
@@ -112,11 +119,15 @@ class Single {
    * @returns // total likes
    */
   getTotalLikes(medias) {
-    let photographerTotalMediasLikes = 0;
-    for (let media of medias) {
-      photographerTotalMediasLikes += media.likes;
-    }
-    return photographerTotalMediasLikes;
+    let newArray = [];
+    const reducer = (previousValue, currentValue) =>
+      previousValue + currentValue;
+    medias.forEach((media) => {
+      // console.log(media.likes);
+      newArray.push(media.likes);
+      console.log(newArray);
+    });
+    return newArray.reduce(reducer);
   }
 }
 
