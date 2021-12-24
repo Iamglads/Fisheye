@@ -73,16 +73,20 @@
       font-style: normal;
       font-weight: normal;
       font-size: 64px;
-      line-height: 83px;
+      line-height: 40px;
       color: #000000;
       @include forMobile {
         font-size: 30px;
       }
     }
     @include forMobile {
-      max-width: 100%;
+      width: 100vw;
       height: auto;
-      padding: 1em;
+      padding-left: 1em;
+      padding-right: 2em;
+    }
+    @include forMobile {
+      margin: 1em;
     }
   }
 }
