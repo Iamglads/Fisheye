@@ -1,5 +1,5 @@
 .btn {
-  background: #911c1c;
+  background: $main-color;
   border-radius: 5px;
   border: none;
   cursor: pointer;
@@ -9,8 +9,22 @@
   font-size: 20px;
   padding: 20px 10px;
   color: #ffffff;
-  transition: cubic-bezier(0.55, 0.055, 0.675, 0.19);
   &:hover {
     background: $second-color;
+  }
+}
+
+.btn-top {
+  visibility: hidden;
+  position: fixed;
+  left: 46%;
+  width: 200px;
+  background: $second-color;
+  padding: 10px 10px;
+  text-align: center;
+  color: black;
+  font-weight: 800;
+  &:hover {
+    opacity: 0.9;
   }
 }

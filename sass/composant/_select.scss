@@ -1,0 +1,28 @@
+.section__filter {
+  &--wrappe {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    height: 100px;
+    width: 100%;
+    select {
+      margin-left: 20px;
+      background-color: #901c1c;
+      font-family: DM Sans;
+      font-style: normal;
+      font-weight: bold;
+      font-size: 12px;
+      color: #ffffff;
+      border-radius: 5px;
+      padding: 1em 2em;
+      border: none;
+      cursor: pointer;
+    }
+    @include forMobile {
+      justify-content: center;
+    }
+  }
+  @include forMobile {
+    display: none;
+  }
+}
