@@ -16,11 +16,16 @@
   ],
   "author": "Gladston Aristoverne",
   "license": "ISC",
+  "browserslist": "last 4 versions",
   "bugs": {
     "url": "https://github.com/Iamglads/fisheye_p6/issues"
   },
   "homepage": "https://github.com/Iamglads/fisheye_p6#readme",
   "dependencies": {
-    "sass": "^1.43.4"
+    "autoprefixer": "^10.4.1",
+    "postcss": "^8.4.5",
+    "postcss-cli": "^9.1.0",
+    "sass": "^1.43.4",
+    "prefix": "postcss ./style/css/style.css --use autoprefixer -d ./style/prefixed/"
   }
 }
