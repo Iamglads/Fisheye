@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="icon" href="../assets/favicon.ico" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
     integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
@@ -24,16 +25,16 @@
                     </nav>
                     <div>
                     </div>
-                </div>
+                </div>              
             </header>
-            <main>
+            <main id="main__content">
                 <div class="hero__container">
                     <div class="hero__wrappe">
                         <div class="hero__wrappe--information">
                             <!--photographer informations-->
                         </div>
                         <div class="hero__wrappe--btn">
-                            <button class="btn">Contactez-nous</button>
+                            <button class="btn open-form" aria-label="Ouvrir le formulaire">Contactez-nous</button>
                         </div>
                         <div class="hero__wrappe--img">
                             <!--photographer photo-->
@@ -43,7 +44,7 @@
                 <section class="section__filter">
                     <div class="section__filter--wrappe">
                         <p>Trier par</p> 
-                        <select name="trier" id="sort" tabindex="0">
+                        <select name="trier" id="sort" tabindex="1">
                             <option value="popularity">Popularité</option>
                             <option value="date">Date</option>
                             <option value="title">Titre</option>
@@ -75,18 +76,20 @@
                       </div>
                 </div>
                 <!--Form box-->
-                <div class="form" role="dialog" aria-label="Modal formulaire de contact">
+                <div class="form modal" role="dialog" aria-label="Modal formulaire de contact">
                     <div class="form__wrappe">
                         <header class="form-header">
                             <h2>Contactez-moi <br> 
                                 <span class="form-name" aria-label="Nom du photographe"></span>
                             </h2>
-                            <i class="fas fa-times close" aria-label="Fermer le formulaire" tabindex="0"></i>
+                            <button class="close first__element" aria-label="Fermer le formulaire" style="background: none; border: none" tabindex="0">
+                                <i class="fas fa-times"></i>
+                            </button>
                         </header>
                         <form action="" class="form-submit">
                             <div>
                                 <label for="firstname">Prénom</label>
-                                <input type="text" name="firstname">
+                                <input type="text" name="firstname" id="firstname">
                             </div>
                             <div>
                                 <label for="lastname">Nom</label>
@@ -101,7 +104,7 @@
                                 <textarea name="message" id="message" cols="30" rows="20"></textarea>
                             </div>
                             <div>
-                                <button type="submit" class="btn btn-contact">Envoyer</button>
+                                <button type="submit" class="btn btn-contact last__element">Envoyer</button>
                             </div>
                         </form>
                     </div>
@@ -109,6 +112,7 @@
             </main>
         </div>
     </div>
+    <script src="../js/Access/Access.js"></script>
     <script type="module" src="../js/Single/Single.js" defer></script>
     
 </body>
