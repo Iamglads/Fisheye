@@ -11,7 +11,7 @@ export class Form {
 
   init() {
     const closeForm = document.querySelectorAll(".close");
-    const openForm = document.querySelector(".btn");
+    const openForm = document.querySelector(".open-form");
     this.displayName(this.photographer);
     this.submitForm.addEventListener("submit", (e) => {
       e.preventDefault();
@@ -50,10 +50,10 @@ export class Form {
 
   sendData() {
     const datas = {
-      Nom: submitForm.firstname.value,
-      Prénom: submitForm.lastname.value,
-      Email: submitForm.email.value,
-      Message: submitForm.message.value,
+      Nom: this.submitForm.firstname.value,
+      Prénom: this.submitForm.lastname.value,
+      Email: this.submitForm.email.value,
+      Message: this.submitForm.message.value,
     };
 
     return datas;
