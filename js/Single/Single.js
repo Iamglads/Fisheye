@@ -132,7 +132,7 @@ class Single {
   updateLikes() {
     let iconLike = document.querySelectorAll(".iconLike");
 
-    iconLike.forEach((icon) =>
+    iconLike.forEach((icon) => {
       icon.addEventListener("click", () => {
         let sumLike = Number(icon.previousElementSibling.textContent);
         let isliked = icon.getAttribute("dataLike");
@@ -148,8 +148,27 @@ class Single {
           icon.classList.add("far");
           icon.setAttribute("dataLike", "false");
         }
-      })
-    );
+      });
+
+      icon.addEventListener("keydown", (e) => {
+        if (e.key == "Enter") {
+          let sumLike = Number(icon.previousElementSibling.textContent);
+          let isliked = icon.getAttribute("dataLike");
+          let likes = icon.previousElementSibling;
+          if (isliked == "false") {
+            likes.innerHTML = sumLike + 1;
+            icon.classList.add("fas");
+            icon.classList.remove("far");
+            icon.setAttribute("dataLike", "true");
+          } else if (isliked == "true") {
+            likes.innerHTML = sumLike - 1;
+            icon.classList.remove("fas");
+            icon.classList.add("far");
+            icon.setAttribute("dataLike", "false");
+          }
+        }
+      });
+    });
   }
 }
 
