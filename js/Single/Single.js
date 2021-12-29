@@ -50,14 +50,14 @@ class Single {
   displayPhotographerInfos(name, city, country, tagline, tags) {
     const heroInfos = document.querySelector(".hero__wrappe--information");
     heroInfos.innerHTML = `
-		<div class="hero__wrappe--information">
-      <h1> ${name}</h1>
-      <address>${city} ${country}</address>
-      <p>${tagline}</p>
-      <ul>
-        ${tags.map((tag) => `<li class="tag">#${tag}<li/>`)}
-      </ul>
-		</div> `;
+			<div class="hero__wrappe--information">
+		<h1> ${name}</h1>
+		<address>${city} ${country}</address>
+		<p>${tagline}</p>
+		<ul>
+			${tags.map((tag) => `<li class="tag">#${tag}<li/>`)}
+		</ul>
+			</div> `;
   }
 
   displayPhotographerPortrait(portrait, name) {
@@ -82,6 +82,7 @@ class Single {
     });
     const ligthbox = new Lightbox(mediasByPhotographer);
     ligthbox.display();
+    this.updateLikes();
   }
 
   /**
@@ -116,18 +117,39 @@ class Single {
   /**
    *
    * @param {Array} medias
-   * @returns // total likes
+   * @return // total likes
    */
   getTotalLikes(medias) {
     let newArray = [];
     const reducer = (previousValue, currentValue) =>
       previousValue + currentValue;
     medias.forEach((media) => {
-      // console.log(media.likes);
       newArray.push(media.likes);
-      console.log(newArray);
     });
     return newArray.reduce(reducer);
+  }
+
+  updateLikes() {
+    let iconLike = document.querySelectorAll(".iconLike");
+
+    iconLike.forEach((icon) =>
+      icon.addEventListener("click", () => {
+        let sumLike = Number(icon.previousElementSibling.textContent);
+        let isliked = icon.getAttribute("dataLike");
+        let likes = icon.previousElementSibling;
+        if (isliked == "false") {
+          likes.innerHTML = sumLike + 1;
+          icon.classList.add("fas");
+          icon.classList.remove("far");
+          icon.setAttribute("dataLike", "true");
+        } else if (isliked == "true") {
+          likes.innerHTML = sumLike - 1;
+          icon.classList.remove("fas");
+          icon.classList.add("far");
+          icon.setAttribute("dataLike", "false");
+        }
+      })
+    );
   }
 }
 
