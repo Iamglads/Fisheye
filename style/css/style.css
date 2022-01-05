@@ -569,6 +569,58 @@ header .header__wrappe .box__tags ul li:hover {
   }
 }
 
+.section__dropdown {
+  min-height: 250px;
+}
+.section__dropdown--wrappe {
+  display: flex;
+}
+.section__dropdown--wrappe .toHide {
+  background: #901c1c;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+  font-family: DM Sans;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 20px;
+  padding: 10px 20px;
+  color: #ffffff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 180px;
+}
+.section__dropdown--wrappe .toShow {
+  display: none;
+  background: #901c1c;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+  font-family: DM Sans;
+  font-style: normal;
+  font-weight: bold;
+  color: #ffffff;
+  padding: 10px;
+}
+.section__dropdown--wrappe .toShow .toShow-box {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.section__dropdown--wrappe .toShow .box {
+  padding-left: 10px;
+  padding-right: 10px;
+  border-bottom: 1px solid #fff;
+  width: 180px;
+  height: 33%;
+}
+.section__dropdown--wrappe .toShow p {
+  padding-left: 16px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
 .lightbox__container {
   display: none;
   justify-content: center;
