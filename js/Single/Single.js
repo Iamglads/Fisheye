@@ -3,6 +3,7 @@ import { Form } from "../Form/Form.js";
 import { MediaCard } from "../Templates/MediaCard.js";
 import { Lightbox } from "../Lightbox/Lightbox.js";
 import { Infos } from "../Infos/Infos.js";
+import { Sort } from "../Sort/Sort.js";
 
 class Single {
   constructor() {
@@ -75,50 +76,14 @@ class Single {
         this.displayMedias.appendChild(Card.createCard());
         mediasByPhotographer.push(media);
       }
-
-      this.sortSelect.addEventListener("change", () => {
-        this.sortMediasMethod(mediasByPhotographer);
-      });
+      const sortMedias = new Sort(mediasByPhotographer);
+      sortMedias.init();
     });
     const ligthbox = new Lightbox(mediasByPhotographer);
     ligthbox.display();
     this.updateLikes();
   }
 
-  /**
-   * sort array and display new array sorted
-   * @param {Array} mediasToSort
-   */
-  sortMediasMethod(mediasToSort) {
-    let selectOption = this.sortSelect.value;
-    if (selectOption === "popularity") {
-      //console.log("popularity");
-      mediasToSort.sort((a, b) => {
-        return b.likes - a.likes;
-      });
-    } else if (selectOption === "date") {
-      //console.log("Date");
-      mediasToSort.sort((a, b) => {
-        return new Date(a.date) - new Date(b.date);
-      });
-    } else if (selectOption === "title") {
-      //console.log("Ttile");
-      mediasToSort.sort((a, b) => {
-        return a.title.localeCompare(b.title);
-      });
-    }
-    this.displayMedias.innerHTML = "";
-    mediasToSort.map((media) => {
-      let Card = new MediaCard(media);
-      this.displayMedias.appendChild(Card.createCard());
-    });
-  }
-
-  /**
-   *
-   * @param {Array} medias
-   * @return // total likes
-   */
   getTotalLikes(medias) {
     let newArray = [];
     const reducer = (previousValue, currentValue) =>
