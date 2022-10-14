@@ -8,6 +8,7 @@ export class PhotographerCard {
     wrapper.classList.add("card__photographer");
     const { id, portrait, name, city, country, tagline, price, tags } =
       this.photographer;
+
     const photographerCard = `
 		<div role="figure" aria-label="Carte photographe">
 			<a href="./pages/photographe.html?id=${id}">

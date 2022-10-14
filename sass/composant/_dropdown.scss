@@ -1,7 +1,12 @@
 .section__dropdown {
-  min-height: 250px;
+  min-height: 300px;
+  display: flex;
+  align-items: center;
   &--wrappe {
-    display: flex;
+    margin: 0 auto;
+    max-width: 1200px;
+    width: 90%;
+    padding: 16px 0;
     .toHide {
       background: $main-color;
       border-radius: 5px;
@@ -29,6 +34,7 @@
       font-weight: bold;
       color: #ffffff;
       padding: 10px;
+      width: 180px;
       .toShow-box {
         display: flex;
         justify-content: space-between;

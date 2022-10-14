@@ -14,7 +14,7 @@ export class Infos {
     element.classList.add("fixed-card");
     element.innerHTML = `<div class="fixed-card-wrappe">
                 <div> 
-                    <span class="likes">${this.totalLikes}</span>
+                    <span class="totalLikes">${this.totalLikes}</span>
                     <i class="fas fa-heart"></i>
                 </div>
                 <div>

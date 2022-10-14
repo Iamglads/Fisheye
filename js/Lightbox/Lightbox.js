@@ -40,16 +40,16 @@ export class Lightbox {
       ".lightbox__container--media"
     );
     contentLightbox.innerHTML = `
-		${
-      media.image
-        ? `<img src="../assets/images/${media.image}" alt="${media.title}">`
-        : `<video class="card-video" width="300" height="380" tabindex="0" controls>
-			<source src="../assets/videos/${media.video}" type="video/mp4">
-			</video>`
-    }
-		<div class="title">
-			<p>${media.title}</p>
-		</div>`;
+			${
+        media.image
+          ? `<img src="../assets/images/${media.image}" alt="${media.title}">`
+          : `<video class="card-video" width="300" height="380" tabindex="0" controls>
+				<source src="../assets/videos/${media.video}" type="video/mp4">
+				</video>`
+      }
+			<div class="title">
+				<p>${media.title}</p>
+			</div>`;
     lightbox.style.display = "flex";
   }
 

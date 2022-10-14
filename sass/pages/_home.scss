@@ -1,16 +1,29 @@
 .section__photographers {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 2em 0;
-  @include forMobile {
-    padding: 0 1em;
+  .box__tags {
+    ul {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+      @include forTablet {
+      }
+      li {
+        cursor: pointer;
+        &:hover {
+          border: 1px solid #911c1c;
+        }
+      }
+    }
   }
-
+ 
   .display__photographers {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
+  display: grid;
+  gap: 20px;
+  grid-template-rows: max-content;
+  grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
+    width: 90%;
+      max-width: 1200px;
+      margin: 0 auto;
     @include forMobile {
       justify-content: center;
     }
